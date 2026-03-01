@@ -1,56 +1,97 @@
-# Welcome to your Expo app 👋
+# CropWise
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native mobile app built with Expo that helps farmers make smarter decisions through AI-powered crop recommendations, real-time weather data, IoT sensor integration, and live market prices.
 
-## Get started
+## Features
 
-1. Install dependencies
+- **AI Crop Recommendations** — Uses Google Gemini to estimate soil nutrients (N, P, K, pH) from field conditions and recommend the best crops
+- **Live Weather** — Location-based weather with animated conditions (sunny, rainy, cloudy, etc.)
+- **IoT Sensor Dashboard** — Real-time soil moisture, temperature, and humidity from connected field sensors
+- **Market Prices** — Live commodity prices with search and filtering
+- **Field Management** — Track and manage multiple fields
+- **Bilingual UI** — Greetings and interface support for English and Hindi
+- **Authentication** — Secure sign-up and login powered by Supabase
+
+## Tech Stack
+
+- **Framework**: Expo (React Native) with file-based routing via Expo Router
+- **Backend**: Supabase (auth + database)
+- **AI**: Google Gemini API (`gemini-2.5-flash-lite`)
+- **Animations**: Lottie, Moti, Framer Motion, React Native Reanimated
+- **Fonts**: Poppins, Lexend (via Expo Google Fonts)
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- Expo CLI (`npm install -g expo-cli`)
+- Android/iOS device or emulator
+
+### Installation
+
+1. Clone the repository and install dependencies:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. Create a `.env` file in the root with your API keys:
+
+   ```env
+   EXPO_SUPABASE_URL=your_supabase_url
+   EXPO_SUPABASE_ANON_KEY=your_supabase_anon_key
+   EXPO_PUBLIC_WEATHER_API_KEY=your_weather_api_key
+   EXPO_PUBLIC_GEMINI_API_KEY=your_gemini_api_key
+   ```
+
+3. Start the development server:
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+### Running on a Device
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+After starting the dev server, you can open the app in:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- **Expo Go** — scan the QR code (limited features)
+- **Android emulator** — press `a` in the terminal
+- **iOS simulator** — press `i` in the terminal
+- **Development build** — for full native feature support
 
-## Get a fresh project
+## Project Structure
 
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+app/
+  (tabs)/
+    home.jsx          # Weather, IoT data, AI health check
+    recommendation.jsx # Live market prices
+    fields/           # Field management
+    help.jsx          # Help & support
+  login.jsx
+  signUp.jsx
+  welcome.jsx
+components/           # Reusable UI components
+services/
+  geminiService.js    # Gemini AI integration
+  weatherService.js   # Weather API
+  iotService.js       # IoT sensor data
+  marketPriceService.js
+  cropRecommendationService.js
+  userService.js
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Environment Variables
 
-## Learn more
+| Variable | Description |
+|---|---|
+| `EXPO_SUPABASE_URL` | Supabase project URL |
+| `EXPO_SUPABASE_ANON_KEY` | Supabase anonymous key |
+| `EXPO_PUBLIC_WEATHER_API_KEY` | Weather API key |
+| `EXPO_PUBLIC_GEMINI_API_KEY` | Google Gemini API key |
 
-To learn more about developing your project with Expo, look at the following resources:
+## Related Repositories
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-
-IoT Backened GitHub Link
-Link-https://github.com/Debjyoti121/IOT-device-backend
-
-Crop Engine
-Link-https://github.com/Debjyoti121/Crop-Engine
+- **IoT Backend** — [Debjyoti121/IOT-device-backend](https://github.com/Debjyoti121/IOT-device-backend)
+- **Crop Engine** — [Debjyoti121/Crop-Engine](https://github.com/Debjyoti121/Crop-Engine)
